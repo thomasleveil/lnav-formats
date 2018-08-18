@@ -1,0 +1,78 @@
+{
+    "traefik_access_log" : {
+        "title" : "Traefik access Log Format",
+        "description" : "Log format used by Traefik for the access log file.",
+        "url" : "https://docs.traefik.io/configuration/logs/",
+        "file-pattern": "/var/log/traefik/access.log",
+        "json": true,
+        "hide-extra": true,
+        "line-format": [
+            {"field": "__timestamp__", "timestamp-format": "%H:%M:%S.%L"}, 
+            " ", 
+            {"field": "level"},
+            " '",
+            {"field": "FrontendName"},
+            " / ",
+            {"field": "BackendName"},
+            "' ",
+            {"field": "ClientHost"},
+            " ",
+            {"field": "DownstreamStatus"},
+            " ",
+            {"field": "RequestMethod"},
+            " ",
+            {"field": "RequestAddr"},
+            " ",
+            {"field": "RequestPath"},
+            " \"",
+            {"field": "request_User-Agent"},
+            "\" ",
+            {"field": "msg"}
+        ],      
+        "timestamp-field": "StartUTC",
+        "timestamp-format": "%Y-%m-%dT%H:%M:%S.%N%Z",
+        "level-field" : "level",
+        "body-field": "msg",
+        "opid-field": "FrontendName",
+        "value" : {
+            "time" : {
+                "kind" : "string",
+                "hidden": true
+            },
+            "level" : {
+                "kind" : "string"
+            },
+            "ClientHost" : {
+                "kind" : "string",
+                "identifier" : true
+            },
+            "DownstreamStatus" : {
+                "kind" : "integer"
+            },
+            "RequestAddr": {
+                "kind": "string"
+            },
+            "RequestMethod": {
+                "kind" : "string"
+            },
+            "RequestPath" : {
+                "kind" : "string"
+            },
+            "request_User-Agent" : {
+                "kind" : "string",
+                "identifier" : true
+            },
+            "msg" : {
+                "kind" : "string"
+            },
+            "FrontendName" : {
+                "kind" : "string",
+                "identifier" : true
+            },
+            "BackendName": {
+                "kind" : "string",
+                "identifier" : true
+            }
+        }
+    }
+}
