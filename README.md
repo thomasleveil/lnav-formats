@@ -15,3 +15,8 @@ You can install these by simply checking this directory out in your
 Some of these formats use features that are only available in lnav version
 0.8.0 or above.  If you get warnings, try renaming the offending files to
 .json-unused to see if this fixes things.
+
+
+# log format documentation
+
+https://lnav.readthedocs.io/en/latest/formats.html
